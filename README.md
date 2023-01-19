@@ -40,7 +40,7 @@ https://github.com/chari00/Daily-Planner-App
 
 ### Deployed website URL
 
-https://chari00.github.io/Timed-Quiz/
+https://chari00.github.io/Daily-Planner-App/
 
 ## 6. Resources
 
