@@ -12,6 +12,8 @@
 
 ## 1. Description
 
+A calendar app for scheduling daily work plan.
+
 ## 2. Visual
 
 ### Image of the project in console view.
@@ -24,7 +26,9 @@
 
 - javascript
 - jQuery
+- moment.js
 - local storage
+- Bootstrap
 - html
 - css
 
@@ -47,6 +51,10 @@ https://chari00.github.io/Daily-Planner-App/
 ### URL for resources
 
 - https://momentjs.com/
+
+- https://api.jquery.com/add/
+
+- https://getbootstrap.com/docs/4.0/components/forms/
 
 ## 7. License
 
