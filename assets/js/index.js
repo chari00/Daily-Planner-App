@@ -1,4 +1,3 @@
-
 $("#currentDay").text(moment().format("dddd, MMMM Do "));
 //create an element( hours)
 let hours = [
@@ -14,21 +13,18 @@ let hours = [
 ];
 let $currentEvent = {};
 let $hoursOfDay = $("<.container>");
-//add class, set content
 
-//append on the page
 // Display the current day at the top of the calender when a user opens the planner.
 let $currentHour = moment().format("hA");
 
 renderEvent();
 function renderEvent() {
   // Present timeblocks for standard business hours when the user scrolls down.
-  for (let i = 1; i < hours.length; i++) {
+  for (let i = 0; i < hours.length; i++) {
     let hour = hours[i];
-    let $currentTime = $('.row');
-    $currentTime.attr( 'date-time', hour )
+    let $currentTime = $(".row");
+    $currentTime.attr("date-time", hour);
   }
-  
 }
 
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
@@ -37,13 +33,11 @@ function renderEvent() {
 
 // Save the event in local storage when the save button is clicked in that timeblock.
 
-$("saveBtn").on("click", function (event) {
-  let eventInput = $(event.target).siblings("textarea").val();
-  localstrorage.setItem("Event Input", eventInput.val());
+$(".saveBtn").on("click", function (event) {
+  $(".container").append($(".row").val());
+
+  let eventInput = $("textarea").val();
+  localStorage.setItem("Event Input", eventInput);
 });
 
-function saveBtn() {
-  let $saveBtnEl = $(".saveBtn");
-  $saveBtnEl.text() = localStorage.getItem("eventInput");
-}
 // Persist events between refreshes of a page
