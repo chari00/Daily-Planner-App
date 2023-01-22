@@ -12,9 +12,17 @@
 
 ## 1. Description
 
-A calendar app for scheduling daily work plan.
+A calendar app for scheduling daily work plan.+
 
 ## 2. Visual
+
+### Color Legend
+
+#### 1. Grey indicates the PAST time.
+
+#### 2.Red indicates the PRESENT time.
+
+#### 2.Green indicates the FUTURE time.
 
 ### Image of the project in console view.
 
