@@ -14,7 +14,7 @@ let hours = [
 ];
 // let $timeBlock = $("<.container>");
 
-let $now = moment().format("hA");
+let $now = moment().format("hh:mm");
 let $row = $(".row");
 
 buildPlanner();
@@ -23,7 +23,7 @@ function buildPlanner() {
   for (let i = 0; i < hours.length; i++) {
     $(".container").append(`<div class="row">
     <div class="col-2" id="hour">${hours[i]}</div>
-    <textarea class="col-8" data=""></textarea>
+    <textarea class="col-8" ${(data = "")}></textarea>
     <button class="col-2 saveBtn">Save</button>
   </div>`);
   }
@@ -42,8 +42,8 @@ function buildPlanner() {
 // });
 
 rowColor();
-let $hourIndex = $("textarea");
-function rowColor($hourIndex, $now) {
+function rowColor() {
+  let $hourIndex = hours;
   // let $eventTime = $("#hour");
 
   if ($hourIndex < $now) {
@@ -60,12 +60,12 @@ function rowColor($hourIndex, $now) {
 // Save the event in local storage when the save button is clicked in that timeblock.
 
 $(".saveBtn").on("click", function (event) {
-  event.preventDefault();
-  $(".container").append($(".row").val(), $("textarea").val());
+  // event.preventDefault();
+  // $(".container").append($(".row").text());
   // $(".row").append($("#hour").val());
 
   let $eventTextInput = $("textarea").val();
-  let $eventTime = $("#hour").val();
+  let $eventTime = $("#hour").data();
   localStorage.setItem("Event Input", $eventTextInput);
   localStorage.setItem("Event Time", $eventTime);
 });
