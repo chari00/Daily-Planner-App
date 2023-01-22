@@ -12,45 +12,47 @@ let hours = [
   "16:00",
   "17:00",
 ];
-let $timeBlock = $("<.container>");
+// let $timeBlock = $("<.container>");
 
-let $currentTime = moment().format("hA");
-let isbefore = moment().isBefore($currentTime);
-let isafter = moment().isAfter($currentTime);
+let $now = moment().format("hA");
 let $row = $(".row");
 
 buildPlanner();
 function buildPlanner() {
   // Present timeblocks for standard business hours when the user scrolls down.
   for (let i = 0; i < hours.length; i++) {
-    // let hour = hours[i];
-    // let $currentTime = $("<div>");
-    let $currentTime = $(".row");
-    let $eventInput = $("textarea");
-    $currentTime.text(hours[i]);
-    $currentTime.attr("class", "row");
-    $eventInput.text("data-time", "$(#hour)");
-    $eventInput.attr("data-time", "$(#hour)");
-    $currentTime.addClass("col-2 ");
-    $(".container").append($(".row"));
-    $(".row").append($("#hour").text(), $("textarea").val());
-
-    // $("#hour").val().append($("textarea").text());
-    // $currentTime.attr("data-time", hour[i]);
+    $(".container").append(`<div class="row">
+    <div class="col-2" id="hour">${hours[i]}</div>
+    <textarea class="col-8" data=""></textarea>
+    <button class="col-2 saveBtn">Save</button>
+  </div>`);
   }
 }
 // console.log($(".hour"));
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
+
+// $(".row").each(function (index, element) {
+//   var $element = $(element);
+//   var hour = $element.data("hour");
+//   if (hour === currentHour) {
+//     $element.css("background-color", "red");
+//   } else {
+//     $element.css("background-color", "blue");
+//   }
+// });
+
 rowColor();
-function rowColor() {
-  let $eventTime = $("#hour");
-  if (($eventTime, (isbefore = true))) {
-    $row = $(".row").attr("class", ".past");
+let $hourIndex = $("textarea");
+function rowColor($hourIndex, $now) {
+  // let $eventTime = $("#hour");
+
+  if ($hourIndex < $now) {
+    $row = $(".row").addClass("past");
   } else {
-    if (($eventTime, (isafter = true))) {
-      $row = $(".row").attr("class", ".future");
+    if ($hourIndex > $now) {
+      $row = $(".row").addClass("future");
     } else {
-      $row = $(".row").attr("class", "present");
+      $row = $(".row").addClass("present");
     }
   }
 }
@@ -58,11 +60,11 @@ function rowColor() {
 // Save the event in local storage when the save button is clicked in that timeblock.
 
 $(".saveBtn").on("click", function (event) {
-  // event.preventDefault();
-  $(".container").append($(".row").val());
-  $(".row").append($("#hour").val());
+  event.preventDefault();
+  $(".container").append($(".row").val(), $("textarea").val());
+  // $(".row").append($("#hour").val());
 
-  let $eventTextInput = $("textarea").text();
+  let $eventTextInput = $("textarea").val();
   let $eventTime = $("#hour").val();
   localStorage.setItem("Event Input", $eventTextInput);
   localStorage.setItem("Event Time", $eventTime);
