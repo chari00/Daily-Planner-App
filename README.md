@@ -12,7 +12,17 @@
 
 ## 1. Description
 
+A calendar app for scheduling daily work plan.+
+
 ## 2. Visual
+
+### Color Legend
+
+#### 1. Grey indicates the PAST time.
+
+#### 2.Red indicates the PRESENT time.
+
+#### 2.Green indicates the FUTURE time.
 
 ### Image of the project in console view.
 
@@ -24,7 +34,9 @@
 
 - javascript
 - jQuery
+- moment.js
 - local storage
+- Bootstrap
 - html
 - css
 
@@ -40,13 +52,17 @@ https://github.com/chari00/Daily-Planner-App
 
 ### Deployed website URL
 
-https://chari00.github.io/Timed-Quiz/
+https://chari00.github.io/Daily-Planner-App/
 
 ## 6. Resources
 
 ### URL for resources
 
 - https://momentjs.com/
+
+- https://api.jquery.com/add/
+
+- https://getbootstrap.com/docs/4.0/components/forms/
 
 ## 7. License
 
