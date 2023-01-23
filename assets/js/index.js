@@ -14,7 +14,7 @@ let hours = [
 ];
 // let $timeBlock = $("<.container>");
 
-let $now = moment().format("hh:mm");
+let $present = moment().format("HH:MM");
 let $row = $(".row");
 
 buildPlanner();
@@ -28,28 +28,15 @@ function buildPlanner() {
   </div>`);
   }
 }
-// console.log($(".hour"));
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
 
-// $(".row").each(function (index, element) {
-//   var $element = $(element);
-//   var hour = $element.data("hour");
-//   if (hour === currentHour) {
-//     $element.css("background-color", "red");
-//   } else {
-//     $element.css("background-color", "blue");
-//   }
-// });
-
 rowColor();
-function rowColor() {
-  let $hourIndex = hours;
-  // let $eventTime = $("#hour");
-
-  if ($hourIndex < $now) {
+let $hourIndex = JSON.stringify(hours);
+function rowColor($hourIndex) {
+  if ($hourIndex < $present) {
     $row = $(".row").addClass("past");
   } else {
-    if ($hourIndex > $now) {
+    if ($hourIndex > $present) {
       $row = $(".row").addClass("future");
     } else {
       $row = $(".row").addClass("present");
@@ -60,14 +47,13 @@ function rowColor() {
 // Save the event in local storage when the save button is clicked in that timeblock.
 
 $(".saveBtn").on("click", function (event) {
-  // event.preventDefault();
-  // $(".container").append($(".row").text());
-  // $(".row").append($("#hour").val());
-
   let $eventTextInput = $("textarea").val();
   let $eventTime = $("#hour").data();
-  localStorage.setItem("Event Input", $eventTextInput);
+  localStorage.setItem("Event ", $eventTextInput);
   localStorage.setItem("Event Time", $eventTime);
 });
 
 // Persist events between refreshes of a page
+function persistEvent(localStorage) {
+  localStorage.getItem($("textarea").val);
+}
