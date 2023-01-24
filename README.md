@@ -22,7 +22,7 @@ A calendar app for scheduling daily work plan.+
 
 #### 2.Red indicates the PRESENT time.
 
-#### 2.Green indicates the FUTURE time.
+#### 3.Green indicates the FUTURE time.
 
 ### Image of the project in console view.
 
