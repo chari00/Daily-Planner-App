@@ -20,15 +20,19 @@ A calendar app for scheduling daily work plan.+
 
 #### 1. Grey indicates the PAST time.
 
+- <img src="/images/grey-past.png">
+
 #### 2.Red indicates the PRESENT time.
 
+- <img src="/images/red-present.png">
+
 #### 3.Green indicates the FUTURE time.
+
+- <img src="/images/green-future.png">
 
 ### Image of the project in console view.
 
 ### Image of the project in Webpage view.
-
-- <img src="/assets/images/score.png">
 
 ## 3. Built with:
 

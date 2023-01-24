@@ -30,66 +30,18 @@ function buildPlanner() {
 }
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
 
-let $hourIndex = Number(hours);
+// let $hourIndex = Number(hours);
 function rowColor() {
   for (j = 0; j < hours.length; j++) {
-    console.log(j);
-    // if (moment().format("HH:MM") > $hourIndex) {
-    //   $row = $(".row").addClass("past");
-    //   if (moment().format("HH:MM") < $hourIndex) {
-    //     $row = $(".row").addClass("future");
-    //   } else {
-    //     $row = $(".row").addClass("present");
-    //   }
-    // }
-
-    //console.log($hourIndex + "  " + $present);
-    // console.log("this" + hours[0] + "  " + $present);
-    // console.log("this2" + hours.length);
-    // console.log(
-    //   "parse " +
-    //     JSON.stringify(hours[0]) +
-    //     " 2nd parse  " +
-    //     JSON.stringify($present)
-    // );
-
-    // console.log("hours j " + hours[j]);
-
-    //console.log(parseFloat(hour[j]) + "  " + parseFloat($present));
-    //     if (JSON.stringify(hours[j]) < JSON.stringify($present)) {
-    //       $row = $(".row").addClass("past");
-    //     } else {
-    //       if (JSON.stringify(hour[j]) > JSON.stringify($present)) {
-    //         console.log(
-    //           "test future" + (JSON.stringify(hour[j]) > JSON.stringify($present))
-    //         );
-    //         $row = $(".row").addClass("future");
-    //       } else {
-    //         $row = $(".row").addClass("present");
-
-    //         console.log(
-    //           "test present" + (JSON.stringify(hour[j]) > JSON.stringify($present))
-    //         );
-    //       }
-    //     }
-    //   }
-    // }
+    // console.log(j);
 
     if (JSON.stringify(hours[j]) < JSON.stringify($present)) {
       $row = $(".row").addClass("past");
-    } else if (JSON.stringify(hours[j]) > JSON.stringify($present)) {
-      //         console.log(
-      //           "test future" + (JSON.stringify(hour[j]) > JSON.stringify($present))
-      $row = $(".row").addClass("future");
-    } else {
-      $row = $(".row").addClass("present");
-      //         console.log(
-      //           "test present" + (JSON.stringify(hour[j]) > JSON.stringify($present))
-      //         );
-      //       }
-      //     }
-      //   }
     }
+    if (JSON.stringify(hours[j]) > JSON.stringify($present)) {
+      $row = $(".row").addClass("future");
+    }
+    $row = $(".row").addClass("present");
   }
 }
 
@@ -97,15 +49,16 @@ rowColor();
 // Allow a user to enter an event when they click a timeblock
 // Save the event in local storage when the save button is clicked in that timeblock.
 
+// let $eventTextInput = JSON.stringify($("textarea").val());
+//let $eventTime = $("#hour").val();
+// let $eventTime = moment($("hour")).format("HH:MM");
+// let $eventTime = moment($("#hour").toString()).format("HH:MM");
+// console.log($eventTime + "  " + $eventTextInput);
 $(".saveBtn").on("click", function () {
-  // let $eventTextInput = JSON.stringify($("textarea").val());
-  //let $eventTime = $("#hour").val();
-  // let $eventTime = moment($("hour")).format("HH:MM");
-  // let $eventTime = moment($("#hour").toString()).format("HH:MM");
-  // localStorage.setItem(`Event ${$eventTime} `, $eventTextInput);
-  // console.log($eventTime + "  " + $eventTextInput);
-  console.log($(this));
-  // localStorage.setItem("Event Time", $eventTime);
+  let $eventTime = $(".saveBtn").parent().attr("#hour");
+  let $eventTextInput = $(".saveBtn").siblings($("textarea"));
+  localStorage.setItem(`Event  `, $eventTextInput);
+  localStorage.setItem("Event Time", $eventTime);
 });
 
 // Persist events between refreshes of a page
