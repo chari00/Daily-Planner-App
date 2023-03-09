@@ -14,7 +14,7 @@ let hours = [
 ];
 // let $timeBlock = $("<.container>");
 
-let $present = moment().format("HH:MM");
+let $present = 12; // moment().format("HH");
 let $row = $(".row");
 
 buildPlanner();
@@ -30,18 +30,15 @@ function buildPlanner() {
 }
 // Color-code each timeblock based on past, present, and future when the timeblock is viewed.
 
-// let $hourIndex = Number(hours);
 function rowColor() {
   for (j = 0; j < hours.length; j++) {
-    // console.log(j);
-
-    if (JSON.stringify(hours[j]) < JSON.stringify($present)) {
-      $row = $(".row").addClass("past");
-    }
-    if (JSON.stringify(hours[j]) > JSON.stringify($present)) {
-      $row = $(".row").addClass("future");
-    }
-    $row = $(".row").addClass("present");
+    console.log(parseInt(hours[j]));
+    if (parseInt(hours[j]) < parseInt($present)) {
+      $row = $(".row").eq(j).addClass("past");
+    } else if (parseInt(hours[j]) > parseInt($present)) {
+      $row = $(".row").eq(j).addClass("future");
+    } else if (parseInt(hours[j]) === parseInt($present))
+      $row = $(".row").eq(j).addClass("present");
   }
 }
 
@@ -49,19 +46,15 @@ rowColor();
 // Allow a user to enter an event when they click a timeblock
 // Save the event in local storage when the save button is clicked in that timeblock.
 
-// let $eventTextInput = JSON.stringify($("textarea").val());
-//let $eventTime = $("#hour").val();
-// let $eventTime = moment($("hour")).format("HH:MM");
-// let $eventTime = moment($("#hour").toString()).format("HH:MM");
-// console.log($eventTime + "  " + $eventTextInput);
 $(".saveBtn").on("click", function () {
-  let $eventTime = $(".saveBtn").parent().attr("#hour");
-  let $eventTextInput = $(".saveBtn").siblings($("textarea"));
-  localStorage.setItem(`Event  `, $eventTextInput);
-  localStorage.setItem("Event Time", $eventTime);
+  let $eventTime = $(this).siblings("div").attr("id");
+  let $eventTextInput = $(this).siblings("textarea").val();
+  localStorage.setItem($eventTime, $eventTextInput);
 });
 
 // Persist events between refreshes of a page
-function persistEvent(localStorage) {
-  localStorage.getItem($eventTextInput.val() + $eventTime.val());
+function persistEvent() {
+  $("textarea").val(localStorage.getItem(`${hour}`));
 }
+
+persistEvent();

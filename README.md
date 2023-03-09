@@ -2,13 +2,13 @@
 
 ## Table of Content
 
-1. Description
-2. Visual
-3. Built with:
-4. What I learned
-5. Links
-6. Resources
-7. License
+1. [Description](#Description)
+2. [Visual](#Visual)
+3. [Built-with:](#Built-with:)
+4. [What-I-learned](#What-I-learned)
+5. [Links](#Links)
+6. [Resources](#Resources)
+7. [License](#License)
 
 ## 1. Description
 
@@ -18,17 +18,9 @@ A calendar app for scheduling daily work plan.+
 
 ### Color Legend
 
-#### 1. Grey indicates the PAST time.
+#### 1. Grey indicates the PAST time, Red indicates the PRESENT time, Green indicates the FUTURE time.
 
-- <img src="/images/grey-past.png">
-
-#### 2.Red indicates the PRESENT time.
-
-- <img src="/images/red-present.png">
-
-#### 3.Green indicates the FUTURE time.
-
-- <img src="/images/green-future.png">
+![color-legend](images/color.png)
 
 ### Image of the project in console view.
 
