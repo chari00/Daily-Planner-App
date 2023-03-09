@@ -1,14 +1,16 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # Daily Planner App
 
 ## Table of Content
 
-1. [Description](#Description)
-2. [Visual](#Visual)
-3. [Built-with:](#Built-with:)
-4. [What-I-learned](#What-I-learned)
-5. [Links](#Links)
-6. [Resources](#Resources)
-7. [License](#License)
+- [Description](#Description)
+- [Visual](#Visual)
+- [Built-with:](#Built-with:)
+- [What-I-learned](#What-I-learned)
+- [Links](#Links)
+- [Resources](#Resources)
+- [License](#License)
 
 ## 1. Description
 
@@ -21,10 +23,6 @@ A calendar app for scheduling daily work plan.+
 #### 1. Grey indicates the PAST time, Red indicates the PRESENT time, Green indicates the FUTURE time.
 
 ![color-legend](images/color.png)
-
-### Image of the project in console view.
-
-### Image of the project in Webpage view.
 
 ## 3. Built with:
 
